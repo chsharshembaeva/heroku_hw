@@ -10,11 +10,11 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class QuestionAnswerSerializer(serializers.ModelSerializer):
-    answer = serializers.CharField(write_only=True)
 
     class Meta:
         model = QuestionAnswer
-        fields = ['id', 'question', 'short_answer', 'answer', 'importance', 'category']
+        fields = ['id', 'question', 'short_answer', 'importance', 'category']
+        read_only_fields = ['answer', ]
 
 
 class QuestionAnswerSerializerPUT(serializers.ModelSerializer):
